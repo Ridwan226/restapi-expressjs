@@ -1,17 +1,10 @@
 const express = require('express');
-
+const UserController = require('../controller/users');
 const router = express.Router();
 
-router.get('/', (req, res) => {
-  res.json({
-    message: 'GET users Success',
-  });
-});
-
-router.post('/', (req, res) => {
-  res.json({
-    message: 'POST users Success',
-  });
-});
+router.post('/', UserController.createNewUers);
+router.get('/', UserController.getAllUers);
+router.patch('/:id', UserController.updateDataUser);
+router.delete('/:id', UserController.deleteDataUSer);
 
 module.exports = router;
